@@ -1,4 +1,5 @@
 module RspecStarter
+  # Abstract super class for a step.
   class Step
     attr_reader :relevant_options
 

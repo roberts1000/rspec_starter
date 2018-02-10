@@ -1,4 +1,5 @@
 module RspecStarter
+  # The step that actually starts the RSpec.
   class InvokeRspecStep < RspecStarter::Step
     def initialize(defaults, runner)
       super(runner)
