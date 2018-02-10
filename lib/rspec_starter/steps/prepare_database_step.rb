@@ -23,20 +23,20 @@ module RspecStarter
       return @success_or_skipped = true if should_skip?
 
       rebuild_cmd = "rake db:drop db:create db:migrate RAILS_ENV=test"
-      print "[#{@runner.step_num}] Preparing the test database with '#{rebuild_cmd.rs_yellow}' ... "
+      print "[#{@runner.step_num}] Preparing the test database with '#{rebuild_cmd.colorize(:light_blue)}' ... "
       _stdin, _stdout, stderr = Open3.popen3(rebuild_cmd)
       output_array = prepare_output_array(stderr.readlines)
 
       @success_or_skipped = successful?(output_array)
 
       if @success_or_skipped
-        puts "Success".rs_green
+        puts "Success".colorize(:green)
         puts output_array
       else
-        puts "Fail".rs_red + "\n\n"
+        puts "Fail".colorize(:red) + "\n\n"
         puts output_array
-        puts "\n\nThere was an error rebuilding the test database.  See the output above for details.".rs_red
-        puts "or manually run '#{rebuild_cmd}' for more information.".rs_red
+        puts "\n\nThere was an error rebuilding the test database.  See the output above for details.".colorize(:red)
+        puts "or manually run '#{rebuild_cmd}' for more information.".colorize(:red)
       end
     end
 
@@ -50,7 +50,7 @@ module RspecStarter
     end
 
     def prepare_output_array(array)
-      (0..array.size - 1).each { |i| array[i] = "    #{array[i].strip}".rs_red }
+      (0..array.size - 1).each { |i| array[i] = "    #{array[i].strip}".colorize(:red) }
       array
     end
   end

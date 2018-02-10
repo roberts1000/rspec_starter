@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_dependency "cri", "~> 2.10.1"
+  spec.add_dependency "colorize", "~> 0.8.1"
 end

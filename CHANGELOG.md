@@ -6,6 +6,7 @@
 1. Prepare the database when the project is a Rails engine.  (Issue #7)
 1. Add an `rspec_starter --init` command that installs an initial script.  (Issue #9)
 1. Add rubocop_plus gem for internal code cleanup.  (Issue #11)
+1. Change the highlight color of the output from yellow to blue.  (Issue #15)
 
 ## 1.0.1 (May 10, 2017)
 
