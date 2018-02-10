@@ -15,7 +15,7 @@ module RspecStarter
     def should_execute?
       return false if @user_wants_to_skip
       return false unless @prepare_database
-      @runner.app_uses_rails?
+      @runner.project_is_rails_app? || @runner.project_is_rails_engine?
     end
 
     def execute

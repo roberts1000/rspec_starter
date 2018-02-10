@@ -41,8 +41,20 @@ module RspecStarter
       end
     end
 
-    def app_uses_rails?
+    def project_is_rails_app?
       File.file?(File.join(Dir.pwd, 'config', 'application.rb'))
+    end
+
+    def project_is_rails_engine?
+      return false unless project_has_lib_dir?
+      Dir["#{Dir.pwd}/lib/**/*.rb"].each do |file|
+        return true if File.readlines(file).detect { |line| line.match(/\s*class\s+.*<\s+::Rails::Engine/) }
+      end
+      false
+    end
+
+    def project_has_lib_dir?
+      Dir.exist?("#{Dir.pwd}/lib")
     end
 
     def operating_system_name
