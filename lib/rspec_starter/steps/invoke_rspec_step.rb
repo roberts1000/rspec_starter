@@ -1,6 +1,5 @@
 module RspecStarter
   class InvokeRspecStep < RspecStarter::Step
-
     def initialize(defaults, runner)
       super(runner)
       @allow_xvfb = defaults.fetch(:allow_xvfb, true)

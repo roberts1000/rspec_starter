@@ -5,14 +5,14 @@ module RspecStarter
     end
 
     def show_help
-      # Figure out the name of the file that invoked the rspec_starter helper.  This is the name of the script; it be called anything.
+      # Figure out the file name that invoked the rspec_starter helper.  This is the name of the script; it be called anything.
       script_name = calling_file_name
       puts "Usage: #{script_name.rs_yellow} #{'[options] [options for RSpec]'.rs_yellow}\n"
       puts "       #{script_name} will look for its own options first then pass any remaining options to rspec"
 
       puts "\nOptions: (run 'rspec --help' to see RSpec's options)"
-      puts "       #{'--no-xvfb'.rs_yellow}     DO NOT run XVFB (this can speed up RSpec when running tests that don't need XVFB)"
-      puts "       #{'--no-prep'.rs_yellow}     DO NOT prepare the test database (can speed up testing if you know the DB is clean)"
+      puts "       #{'--no-xvfb'.rs_yellow}   DO NOT run XVFB (this can speed up RSpec when running tests that don't need XVFB)"
+      puts "       #{'--no-prep'.rs_yellow}   DO NOT prepare the test database (can speed up testing if you know the DB is clean)"
 
       puts "\nExamples:"
       puts "       #{script_name.rs_yellow} #{'spec/features'.rs_yellow} (only run specs in the specs/features folder)"
