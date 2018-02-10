@@ -7,6 +7,6 @@ module RspecStarter
         return exe if File.executable?(exe) && !File.directory?(exe)
       }
     end
-    return "nil"
+    return false
   end
 end
