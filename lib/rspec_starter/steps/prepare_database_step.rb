@@ -24,18 +24,33 @@ module RspecStarter
       rebuild_cmd = "rake db:drop db:create db:migrate RAILS_ENV=test"
       print "[#{@runner.step_num}] Preparing the test database with '#{rebuild_cmd.rs_yellow}' ... "
       _stdin, _stdout, stderr = Open3.popen3(rebuild_cmd)
-      error_msg_array = stderr.readlines
+      output_array = prepare_output_array(stderr.readlines)
 
-      if error_msg_array.empty?
+      if successful?(output_array)
         puts "Success".rs_green
+        puts output_array
         @success_or_skipped = true
       else
-        puts "\n\n"
-        puts error_msg_array
+        puts "Fail".rs_red + "\n\n"
+        puts output_array
         puts "\n\nThere was an error rebuilding the test database.  See the output above for details.".rs_red
         puts "or manually run '#{rebuild_cmd}' for more information.".rs_red
         @success_or_skipped = false
       end
+    end
+
+    private
+
+    # Simply checking the exitstatus isn't good enough.  When rake aborts due to a bug, it will still
+    # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
+    def successful?(output_array)
+      return false if $?.exitstatus.nonzero?
+      not output_array.any? { |result| result.include? "rake aborted!"}
+    end
+
+    def prepare_output_array(array)
+      (0..array.size-1).each { |i| array[i] = "    #{array[i].strip}".rs_red }
+      array
     end
   end
 end
