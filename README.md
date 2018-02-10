@@ -41,11 +41,7 @@ Run the installer
 
     $ rspec_starter --init
 
-The above command installs the script you will use to run rspec.  Make sure it is exectuable
-
-    $ chmod +x bin/start_rspec
-
-The file is named `start_rspec`, but you can rename it to anything you like.
+The above command installs the script you will use to run rspec.  The file is named `start_rspec`, but you can rename it to anything you like.
 
 ## Usage
 
