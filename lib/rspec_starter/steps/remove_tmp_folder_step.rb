@@ -1,4 +1,5 @@
 module RspecStarter
+  # The step that removes the tmp folder.
   class RemoveTmpFolderStep < RspecStarter::Step
     def initialize(defaults, runner)
       super(runner)

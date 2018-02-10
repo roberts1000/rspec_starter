@@ -1,6 +1,8 @@
+require 'English'
 require "rspec_starter/version"
 require_relative 'rspec_starter/runner'
 
+# Entry point for the RspecStarter gem.
 module RspecStarter
   # The 'start' method takes arguments that can be used to control the steps that are executed when running Rspec.  These
   # arguments are specified by the developer when configuring how the app prefers to run RSpec.  In addition to the arguments,

@@ -21,6 +21,10 @@ rspec_starter can curently perform the following steps (these steps can be toggl
 
 This gem uses [Semver](semver.org) 2.0.0.
 
+## Supported Ruby Versions
+
+2.2.0+
+
 ## Installation
 
 ### Rails Applications & Rails Engines

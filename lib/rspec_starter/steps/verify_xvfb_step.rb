@@ -1,4 +1,7 @@
 module RspecStarter
+  # The step that makes sure XVFB is installed on the system.  When feature tests run, they need a display server to power the
+  # browsr that will execute the feature tests.  MacOS provides its own display server that always runs.  Linux needs one
+  # installed and activated.
   class VerifyXvfbStep < RspecStarter::Step
     def initialize(defaults, runner)
       super(runner)
@@ -31,13 +34,11 @@ module RspecStarter
       print "[#{@runner.step_num}] Verifying display server ... "
 
       if @runner.is_linux? && !@runner.xvfb_installed?
-        print "Warning".rs_yellow
-        return puts " (XVFB is not installed.  Feature specs will fail.)".rs_yellow
+        return puts "Warning (XVFB is not installed.  Feature specs will fail.)".rs_yellow
       end
 
       if @runner.is_mac? && @runner.xvfb_installed?
-        print "Warning".rs_yellow
-        return puts " (XVFB has been installed.  This is not needed on a Mac and may cause specs to fail.)".rs_yellow
+        return puts "Warning (XVFB has been installed.  This is not needed on a Mac and may cause specs to fail.)".rs_yellow
       end
 
       puts "Success!!".rs_green

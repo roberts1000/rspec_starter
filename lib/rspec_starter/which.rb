@@ -1,3 +1,4 @@
+# A helper method for figuring out if a command exists on the file system.
 module RspecStarter
   def self.which(cmd)
     exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
