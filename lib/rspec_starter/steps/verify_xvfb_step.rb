@@ -33,7 +33,7 @@ module RspecStarter
 
       if @runner.is_linux? && !@runner.xvfb_installed?
         print "Warning".rs_yellow
-        return puts " (XVFB has NOT been installed on this system.  If you are running feature specs, they will fail.)".rs_yellow
+        return puts " (XVFB is not installed.  Feature specs will fail.)".rs_yellow
       end
 
       if @runner.is_mac? && @runner.xvfb_installed?
