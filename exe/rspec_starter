@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# An executable installed by the rspec_starter gem.  It's currently used to install a bin/start_rspec script.
+#
+# EXECUTION
+#
+# rspec_starter      # Currently a no-op.
+# rspec_starter -i   # Install the bin/start_rspec script.
+# rspec_starter -h   # View the help file to see more options.
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require "cri"
+require 'fileutils'
+
+module Cri
+  # A small monkey patch to force the cri gem to stop coloring output.
+  module Platform
+    def self.color?(_io)
+      false
+    end
+  end
+end
+
+command = Cri::Command.define do
+  usage       'rspec_starter [options]'
+  # aliases     :ds, :stuff
+  # summary     'foo'
+  description "An executable installed by the rspec_starter gem.  It's currently used to install a bin/start_rspec script."
+
+  flag :h, :help, 'show help for this command' do |_value, cmd|
+    puts cmd.help
+    exit 0
+  end
+
+  flag :i, :init, "(re)initialize your project bin/start_rspec file" do |_value, cmd|
+    if File.file?("bin/start_rspec")
+      FileUtils.mv("bin/start_rspec", "bin/start_rspec.bak")
+      puts "bin/start_rspec renamed to bin/start_rspec.bak"
+    end
+
+    template_path = File.expand_path('../../lib/templates/start_rspec', __FILE__)
+    FileUtils.cp(template_path, "bin/start_rspec")
+    puts "bin/start_rspec created"
+    exit 0
+  end
+
+  flag :v, :version, 'return the version of rspec_starter' do |_value, _cmd|
+    require 'rspec_starter/version'
+    puts RspecStarter::VERSION
+    exit 0
+  end
+
+  run do |options, args, cmd|
+  end
+end
+
+begin
+  command.run(ARGV)
+  exit 0
+end
