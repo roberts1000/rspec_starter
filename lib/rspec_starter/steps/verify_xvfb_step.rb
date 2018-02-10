@@ -1,6 +1,5 @@
 module RspecStarter
   class VerifyXvfbStep < RspecStarter::Step
-
     def initialize(defaults, runner)
       super(runner)
       @relevant_options << '--no-xvfb'
@@ -45,4 +44,3 @@ module RspecStarter
     end
   end
 end
-

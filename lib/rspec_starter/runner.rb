@@ -33,11 +33,10 @@ module RspecStarter
       return show_help if should_show_help? # If we show help, exit and don't do anything else.
 
       @steps.each do |step|
-        if step.should_execute?
-          step.execute
-          @step_num += 1
-          break if step.failed?
-        end
+        next unless step.should_execute?
+        step.execute
+        @step_num += 1
+        break if step.failed?
       end
     end
 

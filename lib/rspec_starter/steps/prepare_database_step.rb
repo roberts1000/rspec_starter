@@ -45,11 +45,11 @@ module RspecStarter
     # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
     def successful?(output_array)
       return false if $?.exitstatus.nonzero?
-      not output_array.any? { |result| result.include? "rake aborted!"}
+      output_array.none? { |result| result.include? "rake aborted!" }
     end
 
     def prepare_output_array(array)
-      (0..array.size-1).each { |i| array[i] = "    #{array[i].strip}".rs_red }
+      (0..array.size - 1).each { |i| array[i] = "    #{array[i].strip}".rs_red }
       array
     end
   end
