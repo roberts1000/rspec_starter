@@ -27,7 +27,7 @@ module RspecStarter
     def execute
       cmd = command
       cmd = "#{cmd} #{@rspec_options.join(' ')}" unless @rspec_options.empty?
-      puts "[#{@runner.step_num}] Running specs with '#{cmd.rs_yellow}' ...\n\n"
+      puts "[#{@runner.step_num}] Running specs with '#{cmd.colorize(:light_blue)}' ...\n\n"
       system cmd
       @success_or_skipped = true
     end

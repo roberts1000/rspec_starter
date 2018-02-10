@@ -1,4 +1,5 @@
 require 'English'
+require 'colorize'
 require "rspec_starter/version"
 require_relative 'rspec_starter/runner'
 

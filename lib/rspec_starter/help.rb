@@ -8,20 +8,20 @@ module RspecStarter
     def show_help
       # Figure out the file name that invoked the rspec_starter helper.  This is the name of the script; it be called anything.
       script_name = calling_file_name
-      puts "Usage: #{script_name.rs_yellow} #{'[options] [options for RSpec]'.rs_yellow}\n"
+      puts "Usage: #{script_name.colorize(:light_blue)} #{'[options] [options for RSpec]'.colorize(:light_blue)}\n"
       puts "       #{script_name} will look for its own options first then pass any remaining options to rspec"
 
+      # rubocop:disable Metrics/LineLength
       puts "\nOptions: (run 'rspec --help' to see RSpec's options)"
-      puts "       #{'--no-xvfb'.rs_yellow}   DO NOT run XVFB (this can speed up RSpec when running tests that don't need XVFB)"
-      puts "       #{'--no-prep'.rs_yellow}   DO NOT prepare the test database (can speed up testing if you know the DB is clean)"
+      puts "       #{'--no-xvfb'.colorize(:light_blue)}   DO NOT run XVFB (this can speed up RSpec when running tests that don't need XVFB)"
+      puts "       #{'--no-prep'.colorize(:light_blue)}   DO NOT prepare the test database (can speed up testing if you know the DB is clean)"
 
       puts "\nExamples:"
-      puts "       #{script_name.rs_yellow} #{'spec/features'.rs_yellow} (only run specs in the specs/features folder)"
-      # rubocop:disable Metrics/LineLength
-      puts "       #{script_name.rs_yellow} #{'spec/features/some_spec:53'.rs_yellow} (run the spec on line 53 of the spec/features_some_spec.rb file)"
-      puts "       #{script_name.rs_yellow} #{'--no-xvfb'.rs_yellow} #{'spec/requests/some_spec'.rs_yellow} (don't start XVFB since it's not needed for request specs)"
+      puts "       #{script_name.colorize(:light_blue)} #{'spec/features'.colorize(:light_blue)} (only run specs in the specs/features folder)"
+      puts "       #{script_name.colorize(:light_blue)} #{'spec/features/some_spec:53'.colorize(:light_blue)} (run the spec on line 53 of the spec/features_some_spec.rb file)"
+      puts "       #{script_name.colorize(:light_blue)} #{'--no-xvfb'.colorize(:light_blue)} #{'spec/requests/some_spec'.colorize(:light_blue)} (don't start XVFB since it's not needed for request specs)"
+      puts "       #{'SIMPLECOV_FORMATTER=rcov'.colorize(:light_blue)} #{script_name.colorize(:light_blue)} (use with environment variables)\n"
       # rubocop:enable Metrics/LineLength
-      puts "       SIMPLECOV_FORMATTER=rcov #{script_name.rs_yellow} (use with environment variables)\n"
     end
 
     # This is ugly, but it gives us some added flexibility.  Users can invoke the rspec_starter method from any script or

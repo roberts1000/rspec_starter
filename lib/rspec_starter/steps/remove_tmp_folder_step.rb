@@ -23,7 +23,7 @@ module RspecStarter
       return @success_or_skipped = true unless should_execute?
       existed_before = tmp_folder_exists?
 
-      print "[#{@runner.step_num}] Removing #{'tmp'.rs_yellow} folder ... "
+      print "[#{@runner.step_num}] Removing #{'tmp'.colorize(:light_blue)} folder ... "
       system "rm -rf tmp/"
 
       if tmp_folder_exists?
@@ -32,7 +32,7 @@ module RspecStarter
       else
         @success_or_skipped = true
         info = existed_before ? "" : " (the tmp folder didn't exist)"
-        puts "Success!!#{info}".rs_green
+        puts "Success!!#{info}".colorize(:green)
       end
     end
 
