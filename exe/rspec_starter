@@ -8,7 +8,7 @@
 # rspec_starter -i   # Install the bin/start_rspec script.
 # rspec_starter -h   # View the help file to see more options.
 
-lib = File.expand_path('../../lib', __FILE__)
+lib = File.expand_path('../lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "cri"
@@ -40,7 +40,7 @@ command = Cri::Command.define do
       puts "bin/start_rspec renamed to bin/start_rspec.bak"
     end
 
-    template_path = File.expand_path('../../lib/templates/start_rspec', __FILE__)
+    template_path = File.expand_path('../lib/templates/start_rspec', __dir__)
     FileUtils.cp(template_path, "bin/start_rspec")
     File.chmod(0o775, "bin/start_rspec")
     puts "bin/start_rspec created"
