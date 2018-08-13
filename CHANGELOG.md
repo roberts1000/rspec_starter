@@ -3,6 +3,7 @@
 ## Upcoming
 
 1. Update ruby versions in .travis.yml.  (Issue #24)
+1. Use bundler 1.16.3 in .travis.yml.  (Issue #26)
 
 ## 1.1.1 (May 06, 2018)
 
