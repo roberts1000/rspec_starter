@@ -7,6 +7,7 @@
 1. Use bundler 1.16.3 in .travis.yml.  (Issue #26)
 1. Use `cri` `~> 2.12.0`.  (Issue #29)
 1. Remove support for Ruby 2.2.  (Issue #31)
+1. Use `rake` `~> 12.0` in development.  (Issue #33)
 
 ## 1.1.1 (May 06, 2018)
 
