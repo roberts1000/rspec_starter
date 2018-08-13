@@ -10,7 +10,7 @@ At the moment, rspec_starter works for Rails applications, Rails Engines and raw
 
 ### Main Steps
 
-rspec_starter can curently perform the following steps (these steps can be toggled on or off)
+rspec_starter can currently perform the following steps (these steps can be toggled on or off)
 
 - Prepare a Rails database (or dummy database inside a Rails engine) by running `rake db:drop db:create db:migrate RAILS_ENV=test`
 - Remove the `tmp` folder if it exists
