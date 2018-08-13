@@ -23,7 +23,7 @@ This gem uses [Semver](semver.org) 2.0.0.
 
 ## Supported Ruby Versions
 
-2.2.0+
+2.3.0+
 
 ## Installation
 

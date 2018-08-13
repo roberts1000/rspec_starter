@@ -5,6 +5,7 @@
 1. Remove rubocop_plus from Gemfile.  (Issue #23)
 1. Update ruby versions in .travis.yml.  (Issue #24)
 1. Use bundler 1.16.3 in .travis.yml.  (Issue #26)
+1. Remove support for Ruby 2.2.  (Issue #31)
 
 ## 1.1.1 (May 06, 2018)
 
