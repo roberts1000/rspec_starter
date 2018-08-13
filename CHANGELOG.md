@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Upcoming
+
+1. Update ruby versions in .travis.yml.  (Issue #24)
+
 ## 1.1.1 (May 06, 2018)
 
 1. Cleanup rubocop issues in the `start_rspec` template that is installed in user applications.  (Issue #6)
