@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0 (Aug 30, 2018)
+
+1. Change `cri` version to `~> 2.0`.  (Issue #37)
+
 ## 1.2.0 (Aug 08, 2018)
 
 1. Remove rubocop_plus from Gemfile.  (Issue #23)
