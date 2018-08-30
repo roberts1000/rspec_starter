@@ -19,7 +19,7 @@ rspec_starter can currently perform the following steps (these steps can be togg
 
 ## Versioning Strategy
 
-This gem uses [Semver](semver.org) 2.0.0.
+This gem uses [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 ## Supported Ruby Versions
 
@@ -63,13 +63,13 @@ which tells start_rspec, to tell rspec, to only run the feature tests.  Run the 
 
 ## Configuration
 
-The entire idea behind start_rspec is to standardize the process of starting application.  You can modify the `bin/start_rspec` file to do whatever you want.  If you open that file, you'll see that it does one thing - it calls the following command in the context of the root folder, of your project:
+The entire idea behind start_rspec is to standardize the process of starting RSpec for an application.  You can modify the `bin/start_rspec` file to do whatever you want.  If you open that file, you'll see that it does one thing - it calls the following command in the context of the root folder, of your project:
 
     RspecStarter.start(prepare_db: true, remove_tmp: true, allow_xvfb: true)
 
-The arguments passed to `start_rspec`, represent the defaults you consider important for achieving a clean RSpec run.  If your particular project doesn't have a DB, or you don't need it prepared before each Rspec run, you could turn that step off by passing `prepare_db: false`.
+The arguments passed to `start_rspec`, represent the defaults you consider important for achieving a clean RSpec run.  If your particular project doesn't have a DB, or you don't need it prepared before each Rspec run, you can turn that step off by passing `prepare_db: false`.
 
-Be careful about the steps you enable/disable inside the script file.  **The goal is to define steps that help people, with limited knowledge of the project, successfully run RSpec.**  It's best to have the bin/start_rspec define the best way to run rspec for newbies.  You can disable specific steps by passing in command line options.  Run `bin/start_rspec --help` to see a list of available options.
+Be careful about the steps you enable/disable inside the script file.  **The goal is to define steps that help people, with limited knowledge of the project, successfully run RSpec.**  It's best to have `bin/start_rspec` define the best way to run RSpec for newbies, then disable specific steps by passing in command line options on a per-run basis.  Run `bin/start_rspec --help` to see a list of available options.
 
 ## Contributing
 
