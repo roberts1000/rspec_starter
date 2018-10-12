@@ -1,6 +1,7 @@
 # CHANGELOG
 
 1. Isolate rebuild command string into a dedicated method..  (Issue #41)
+1. Fix database rebuild command hanging when there's too much output.  (Issue #45)
 
 ## 1.3.0 (Aug 30, 2018)
 
