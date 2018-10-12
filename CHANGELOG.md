@@ -1,5 +1,7 @@
 # CHANGELOG
 
+1. Isolate rebuild command string into a dedicated method..  (Issue #41)
+
 ## 1.3.0 (Aug 30, 2018)
 
 1. Change `cri` version to `~> 2.0`.  (Issue #37)
