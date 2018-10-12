@@ -22,7 +22,7 @@ module RspecStarter
     def execute
       return @success_or_skipped = true if should_skip?
 
-      rebuild_cmd = "rake db:drop db:create db:migrate RAILS_ENV=test"
+      rebuild_cmd = rebuild_command
       print "[#{@runner.step_num}] Preparing the test database with '#{rebuild_cmd.colorize(:light_blue)}' ... "
       _stdin, _stdout, stderr = Open3.popen3(rebuild_cmd)
       output_array = prepare_output_array(stderr.readlines)
@@ -41,6 +41,10 @@ module RspecStarter
     end
 
     private
+
+    def rebuild_command
+      "rake db:drop db:create db:migrate RAILS_ENV=test"
+    end
 
     # Simply checking the exitstatus isn't good enough.  When rake aborts due to a bug, it will still
     # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
