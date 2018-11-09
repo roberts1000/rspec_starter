@@ -47,7 +47,7 @@ module RspecStarter
     # Simply checking the exitstatus isn't good enough.  When rake aborts due to a bug, it will still
     # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
     def successful?(stderr)
-      return false if $CHILD_STATUS.exitstatus.nonzero?
+      return false if $CHILD_STATUS&.exitstatus&.nonzero?
       !stderr.include?("rake aborted!")
     end
   end
