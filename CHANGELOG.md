@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Next Release
+## 1.5.0 (Feb 19, 2019)
 
 1. Report an exit status of 1 if DB Preparation or RSpec fails.  (Issue #51)
 
