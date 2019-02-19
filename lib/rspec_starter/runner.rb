@@ -23,10 +23,12 @@ module RspecStarter
       @steps = []
       @step_num = 1
       @xvfb_installed = RspecStarter.which("xvfb-run")
+      @prep_db_step = PrepareDatabaseStep.new(defaults, self)
+      @run_rspec_step = InvokeRspecStep.new(defaults, self)
       @steps << VerifyXvfbStep.new(defaults, self)
-      @steps << PrepareDatabaseStep.new(defaults, self)
+      @steps << @prep_db_step
       @steps << RemoveTmpFolderStep.new(defaults, self)
-      @steps << InvokeRspecStep.new(defaults, self)
+      @steps << @run_rspec_step
     end
 
     def run
@@ -38,6 +40,8 @@ module RspecStarter
         @step_num += 1
         break if step.failed?
       end
+
+      finalize_exit
     end
 
     def project_is_rails_app?
@@ -73,6 +77,12 @@ module RspecStarter
 
     def xvfb_installed?
       @xvfb_installed
+    end
+
+    def finalize_exit
+      exit(1) if @run_rspec_step.rspec_exit_status.nonzero?
+      exit(1) if @prep_db_step.exit_status.nonzero?
+      exit(0)
     end
   end
 end

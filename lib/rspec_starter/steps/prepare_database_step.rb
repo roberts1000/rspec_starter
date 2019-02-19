@@ -1,12 +1,15 @@
 module RspecStarter
   # The steps that destorys and rebuilds the DB before running RSpec.
   class PrepareDatabaseStep < RspecStarter::Step
+    attr_reader :exit_status
+
     def initialize(defaults, runner)
       super(runner)
       @prepare_database = defaults.fetch(:prepare_db, true)
       @relevant_options << '--no-prep-db'
       @user_wants_to_skip = ARGV.any? { |option| option.include?("--no-prep-db") }
       @success_or_skipped = nil # Will be updated once step executes
+      @exit_status = 0 # Will be updated once step executes
     end
 
     def failed?
@@ -24,7 +27,8 @@ module RspecStarter
 
       rebuild_cmd = rebuild_command
       print "[#{@runner.step_num}] Preparing the test database with '#{rebuild_cmd.colorize(:light_blue)}' ... "
-      _stdout, stderr, _status = Open3.capture3(rebuild_cmd)
+      _stdout, stderr, exit_status = Open3.capture3(rebuild_cmd)
+      @exit_status = exit_status.exitstatus
       @success_or_skipped = successful?(stderr)
 
       if @success_or_skipped
@@ -47,7 +51,7 @@ module RspecStarter
     # Simply checking the exitstatus isn't good enough.  When rake aborts due to a bug, it will still
     # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
     def successful?(stderr)
-      return false if $CHILD_STATUS.exitstatus.nonzero?
+      return false if @exit_status.nonzero?
       !stderr.include?("rake aborted!")
     end
   end
