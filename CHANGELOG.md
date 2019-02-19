@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Next Release
+
+1. Report an exit status of 1 if DB Preparation or RSpec fails.  (Issue #51)
+
 ## 1.4.0 (Oct 12, 2018)
 
 1. Isolate rebuild command string into a dedicated method..  (Issue #41)

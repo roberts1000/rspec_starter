@@ -17,9 +17,9 @@ rspec_starter can currently perform the following steps (these steps can be togg
 - Verify XVFB is installed when running on a Linux box
 - Start RSpec with `bundle exec rspec` or `xvfb-run bundle exec rspec` (depending on the needs of the OS)
 
-## Versioning Strategy
+## Version Policy
 
-This gem uses [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
+Releases are versioned using [semver 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 ## Supported Ruby Versions
 
@@ -63,12 +63,12 @@ which tells start_rspec, to tell rspec, to only run the feature tests.  Run the 
 
 ## Custom Steps
 
-rspec_starter does not currently have support for creating custom steps.  However, there are some techniques that can achieve the same results.  rspec_starter currently implements 4 "steps" which can be turned on or off.  The steps are implemented by classes and are evaluated in this order: 
+rspec_starter does not currently have support for creating custom steps.  However, there are some techniques that can achieve the same results.  rspec_starter currently implements 4 "steps" which can be turned on or off.  The steps are implemented by classes and are evaluated in this order:
 
 1. `VerifyXvfbStep` - Ensures xvfb is installed on systems where it should be used (.i.e. Linux).
 1. `PrepareDatabaseStep` - Runs `rake db:drop db:create db:migrate RAILS_ENV=test`.
 1. `RemoveTmpFolderStep` - Deletes the `tmp` folder.
-1. `InvokeRspecStep` - Runs `bundle exec rspec`. 
+1. `InvokeRspecStep` - Runs `bundle exec rspec`.
 
 All steps implement an `execute` method that actually runs the step. You can inject custom code before or after any one of those steps.
 
@@ -92,7 +92,7 @@ module CustomStep
 end
 
 RspecStarter::PrepareDatabaseStep.prepend CustomStep
- 
+
 Dir.chdir APP_ROOT do
   RspecStarter.start(prepare_db: true, remove_tmp: true, allow_xvfb: true)
 end

@@ -3,6 +3,16 @@ require 'colorize'
 require "rspec_starter/version"
 require_relative 'rspec_starter/runner'
 
+# Setup pry for development when running "rake console". Guard against load
+# errors in production (since pry is only loaded as a DEVELOPMENT dependency
+# in the .gemspec)
+# rubocop:disable Lint/HandleExceptions
+begin
+  require "pry"
+rescue LoadError
+end
+# rubocop:enable Lint/HandleExceptions
+
 # Entry point for the RspecStarter gem.
 module RspecStarter
   # The 'start' method takes arguments that can be used to control the steps that are executed when running Rspec.  These

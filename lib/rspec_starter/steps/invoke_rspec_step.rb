@@ -1,11 +1,14 @@
 module RspecStarter
   # The step that actually starts the RSpec.
   class InvokeRspecStep < RspecStarter::Step
+    attr_reader :rspec_exit_status
+
     def initialize(defaults, runner)
       super(runner)
       @allow_xvfb = defaults.fetch(:allow_xvfb, true)
       @relevant_options = ["--no-xvfb"]
       @success_or_skipped = nil # Will be updated once step executes
+      @rspec_exit_status = nil # Will be updated once step executes
       @user_wants_to_skip_xvfb = ARGV.any? { |option| option.include?("--no-xvfb") }
       init_rspec_options
     end
@@ -29,6 +32,7 @@ module RspecStarter
       cmd = "#{cmd} #{@rspec_options.join(' ')}" unless @rspec_options.empty?
       puts "[#{@runner.step_num}] Running specs with '#{cmd.colorize(:light_blue)}' ...\n\n"
       system cmd
+      @rspec_exit_status = $CHILD_STATUS.exitstatus
       @success_or_skipped = true
     end
 
