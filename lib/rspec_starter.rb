@@ -1,7 +1,7 @@
 require 'English'
 require 'colorize'
 require "rspec_starter/version"
-require_relative 'rspec_starter/runner'
+require_relative 'rspec_starter/legacy/runner'
 
 # Setup pry for development when running "rake console". Guard against load
 # errors in production (since pry is only loaded as a DEVELOPMENT dependency
