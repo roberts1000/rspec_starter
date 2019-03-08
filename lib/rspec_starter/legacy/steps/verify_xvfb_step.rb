@@ -5,6 +5,7 @@ module RspecStarter
   class VerifyXvfbStep < RspecStarter::Step
     def initialize(defaults, runner)
       super(runner)
+
       @relevant_options << '--no-xvfb'
       @use_xvfb = defaults.fetch(:use_xvfb, true)
       @user_wants_to_skip_xvfb = ARGV.any? { |option| option.include?("--no-xvfb") }
@@ -21,6 +22,7 @@ module RspecStarter
 
     def should_execute?
       return false if @user_wants_to_skip_xvfb
+
       @use_xvfb
     end
 

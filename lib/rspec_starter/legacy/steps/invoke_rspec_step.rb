@@ -5,6 +5,7 @@ module RspecStarter
 
     def initialize(defaults, runner)
       super(runner)
+
       @allow_xvfb = defaults.fetch(:allow_xvfb, true)
       @relevant_options = ["--no-xvfb"]
       @success_or_skipped = nil # Will be updated once step executes
@@ -42,6 +43,7 @@ module RspecStarter
       return base if @runner.is_mac?
       return base unless @allow_xvfb
       return base if @user_wants_to_skip_xvfb
+
       @runner.xvfb_installed? ? "xvfb-run #{base}" : base
     end
   end
