@@ -8,6 +8,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 1. [#59](../../issues/59) Use `rake ~> 13.0` for development. **(Internal)**
 1. [#61](../../issues/61) Use `pry-byebug ~> 3.7.0` for development. **(Internal)**
 1. [#63](../../issues/63) Modernize the CHANGELOG. **(Internal)**
+1. [#66](../../issues/66) Update ruby versions and use bundler 2.0.2 in `travis.yml`. **(Internal)**
 
 ## 1.5.0 (Feb 19, 2019)
 
