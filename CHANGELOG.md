@@ -4,6 +4,7 @@
 
 1. Move old starter code to a `legacy` folder so it can still be used.  (Issue #56)
 1. Use `rake ~> 13.0` for development.  (Issue #59)
+1. Use `pry-byebug ~> 3.7.0` for development.  (Issue #61)
 
 ## 1.5.0 (Feb 19, 2019)
 
