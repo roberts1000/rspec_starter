@@ -5,7 +5,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 ## Next Release
 
 1. [#56](../../issues/56) Move old starter code to a `legacy` folder so it can still be used. **(Internal)**
-1. [#59](../../issues/59) Use `rake ~> 13.0` for development. **(Internal)
+1. [#59](../../issues/59) Use `rake ~> 13.0` for development. **(Internal)**
 1. [#61](../../issues/61) Use `pry-byebug ~> 3.7.0` for development. **(Internal)**
 1. [#63](../../issues/63) Modernize the CHANGELOG. **(Internal)**
 
@@ -27,7 +27,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 
 1. [#23](../../issues/23) Remove `rubocop_plus` from Gemfile. **(Internal)**
 1. [#24](../../issues/24) Update ruby versions in `.travis.yml`. **(Internal)**
-1. [#26](../../issues/26) Use `bundler` `1.16.3` in .travis.yml. **(Internal)**
+1. [#26](../../issues/26) Use `bundler` `1.16.3` in `.travis.yml`. **(Internal)**
 1. [#29](../../issues/29) Use `cri` `~> 2.12.0`.
 1. [#31](../../issues/31) Remove support for Ruby 2.2.
 1. [#33](../../issues/33) Use `rake` `~> 12.0` in development. **(Internal)**
