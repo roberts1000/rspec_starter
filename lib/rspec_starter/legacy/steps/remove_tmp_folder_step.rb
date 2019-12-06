@@ -3,6 +3,7 @@ module RspecStarter
   class RemoveTmpFolderStep < RspecStarter::Step
     def initialize(defaults, runner)
       super(runner)
+
       @remove_tmp_folder = defaults.fetch(:remove_tmp, true)
       @runner = runner
       @relevant_options << "--no-remove-tmp"
@@ -16,11 +17,13 @@ module RspecStarter
 
     def should_execute?
       return false if @user_wants_to_skip_removal
+
       @remove_tmp_folder
     end
 
     def execute
       return @success_or_skipped = true unless should_execute?
+
       existed_before = tmp_folder_exists?
 
       print "[#{@runner.step_num}] Removing #{'tmp'.colorize(:light_blue)} folder ... "

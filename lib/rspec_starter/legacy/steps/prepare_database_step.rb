@@ -5,6 +5,7 @@ module RspecStarter
 
     def initialize(defaults, runner)
       super(runner)
+
       @prepare_database = defaults.fetch(:prepare_db, true)
       @relevant_options << '--no-prep-db'
       @user_wants_to_skip = ARGV.any? { |option| option.include?("--no-prep-db") }
@@ -19,6 +20,7 @@ module RspecStarter
     def should_execute?
       return false if @user_wants_to_skip
       return false unless @prepare_database
+
       @runner.project_is_rails_app? || @runner.project_is_rails_engine?
     end
 
@@ -41,7 +43,6 @@ module RspecStarter
       end
     end
 
-
     private
 
     def rebuild_command
@@ -52,6 +53,7 @@ module RspecStarter
     # return a zero exit status.  We need to see if 'rake aborted!' has been written to the output.
     def successful?(stderr)
       return false if @exit_status.nonzero?
+
       !stderr.include?("rake aborted!")
     end
   end

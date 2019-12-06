@@ -1,7 +1,6 @@
 require 'pathname'
 require 'open3'
-require_relative 'core_ext/string'
-require_relative 'which'
+
 require_relative 'help'
 require_relative 'steps/step'
 require_relative 'steps/verify_xvfb_step'
@@ -15,7 +14,7 @@ module RspecStarter
   # taken to help invoke Rspec.  Steps are typically independent do not depend on information from other steps.  However
   # this is not a hard rule.  If more complex steps are needed, feel free to create them.  Each steps knows about the main
   # runner object, so the runner object is a good place to store shared info.
-  class Runner
+  class LegacyRunner
     include Help
     attr_reader :xvfb_installed, :step_num, :steps
 
@@ -36,6 +35,7 @@ module RspecStarter
 
       @steps.each do |step|
         next unless step.should_execute?
+
         step.execute
         @step_num += 1
         break if step.failed?
@@ -50,6 +50,7 @@ module RspecStarter
 
     def project_is_rails_engine?
       return false unless project_has_lib_dir?
+
       Dir["#{Dir.pwd}/lib/**/*.rb"].each do |file|
         return true if File.readlines(file).detect { |line| line.match(/\s*class\s+.*<\s+::Rails::Engine/) }
       end
@@ -64,6 +65,7 @@ module RspecStarter
       result = `uname`
       return 'Linux' if result.include?('Linux')
       return 'MacOS' if result.include?('Darwin')
+
       'Unknown'
     end
 

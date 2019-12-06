@@ -1,3 +1,3 @@
 module RspecStarter
-  VERSION = "1.5.0".freeze
+  VERSION = "1.6.0-alpha.1".freeze
 end

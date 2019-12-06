@@ -9,3 +9,12 @@ inherit_gem:
 
 # Place custom settings below this comment.  All customizations will OVERRIDE rubocop_plus rules.  rubocop_plus & rubocop
 # do not attempt to merge these settings with their defaults.  Long term changes should be ported to the rubocop_plus gem.
+
+Rails:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/Alias:
+  Enabled: false

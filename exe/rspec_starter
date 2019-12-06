@@ -13,6 +13,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "cri"
 require 'fileutils'
+require 'rspec_starter/helpers'
 
 module Cri
   # A small monkey patch to force the cri gem to stop coloring output.
@@ -23,6 +24,7 @@ module Cri
   end
 end
 
+# rubocop:disable Metrics/BlockLength
 command = Cri::Command.define do
   usage       'rspec_starter [options]'
   # aliases     :ds, :stuff
@@ -35,12 +37,22 @@ command = Cri::Command.define do
   end
 
   flag :i, :init, "(re)initialize your project bin/start_rspec file" do |_value, _cmd|
+    helpers = RspecStarter::Helpers.new
+
     if File.file?("bin/start_rspec")
       FileUtils.mv("bin/start_rspec", "bin/start_rspec.bak")
       puts "bin/start_rspec renamed to bin/start_rspec.bak"
     end
 
-    template_path = File.expand_path('../lib/templates/start_rspec', __dir__)
+    template_path =
+      if helpers.project_is_rails_app?
+        File.expand_path('../lib/templates/rails_start_rspec', __dir__)
+      elsif helpers.project_is_rails_app?
+        File.expand_path('../lib/templates/rails_engine_start_rspec', __dir__)
+      else
+        File.expand_path('../lib/templates/start_rspec', __dir__)
+      end
+
     FileUtils.cp(template_path, "bin/start_rspec")
     File.chmod(0o775, "bin/start_rspec")
     puts "bin/start_rspec created"
@@ -56,6 +68,7 @@ command = Cri::Command.define do
   run do |options, args, cmd|
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 begin
   command.run(ARGV)
