@@ -31,7 +31,6 @@ APP_ROOT = Pathname.new File.expand_path('../', __dir__)
 
 # Tasks are run from the top down.
 RspecStarter.start do
-  # task :my_custom_task
   task :verify_display_server
   task :remove_tmp_folder
   task :start_rspec
