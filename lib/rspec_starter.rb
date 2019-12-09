@@ -22,7 +22,7 @@ require 'rspec_starter/runner'
 require 'rspec_starter/step_context'
 require 'rspec_starter/step'
 require 'rspec_starter/task_context'
-require 'rspec_starter/task'
+require 'rspec_starter/rspec_starter_task'
 require 'rspec_starter/command_context'
 require 'rspec_starter/command'
 

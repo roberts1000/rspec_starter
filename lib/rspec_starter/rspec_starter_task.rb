@@ -14,14 +14,22 @@ class RspecStarterTask < RspecStarterStep
     @options_registrar.register_task_option(self, hash)
   end
 
+  def self.description
+    ""
+  end
+
   private
+
+  # Convert something like VerifyDisplayServer to :verify_display_server
+  def self.name_for_class(klass)
+    klass.name.underscore.to_sym
+  end
 
   def print_starting_message
     print "#{@starting_message} ..."
   end
 
   def initialize_name
-    # Convert something like VerifyDisplayServer to :verify_display_server
-    @name = self.class.name.underscore.to_sym
+    @name = self.class.name_for_class(self.class)
   end
 end

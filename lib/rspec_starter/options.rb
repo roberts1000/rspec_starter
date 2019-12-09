@@ -2,7 +2,7 @@ module RspecStarter
   # Manages the option registration process for the Step subclasses.
   # Holds raw option information so it can organized when steps run.
   class Options
-    attr_reader :present_switches, :rspec_args_string
+    attr_reader :present_switches, :registered_task_options, :rspec_args_string
 
     def initialize(environment, args)
       @environment = environment
@@ -34,8 +34,9 @@ module RspecStarter
 
     # If name isn't specified, this option is only a commandline switch.
     # If name is specified, this option can be used inside the start block on a task.
-    def register_task_option(klass, name: nil, default: nil, switch: nil, description: "")
-      new_option = RspecStarter::Option.new(name: name, default: default, switch: switch, description: description, owner: klass)
+    def register_task_option(klass, name: nil, default: nil, description: "", switch: nil, switch_description: "")
+      new_option = RspecStarter::Option.new(name: name, default: default, description: description, owner: klass, switch: switch,
+                                            switch_description: switch_description)
       @registered_task_options[klass] << new_option
     end
 
