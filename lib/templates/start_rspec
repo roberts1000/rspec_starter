@@ -14,8 +14,24 @@ require "rspec_starter"
 # The path to the application's root folder.
 APP_ROOT = Pathname.new File.expand_path('../', __dir__)
 
+# Create a custom task. For more information about custom tasks, see
+# https://github.com/roberts1000/rspec_starter. Once defined, add
+# 'task :my_custom_task' to the start block to execute.
+#
+# class MyCustomTask < RspecStarterTask
+#   # Specify a message to show users when the task executes.
+#   def starting_message
+#     "Executing My Custom Task"
+#   end
+#
+#   # Execute task code.
+#   def execute
+#   end
+# end
+
 # Tasks are run from the top down.
 RspecStarter.start do
+  # task :my_custom_task
   task :verify_display_server
   task :remove_tmp_folder
   task :start_rspec

@@ -24,7 +24,6 @@ class VerifyDisplayServer < RspecStarterTask
 
   # rubocop:disable Style/IfUnlessModifier, Style/GuardClause
   def execute
-    problem("foo")
     # Check if a Linux user is missing XVFB. XVFB is needed to run RSpec feature tests on Linux.
     if helpers.is_linux? && helpers.xvfb_not_installed?
       problem "XVFB isn't installed; feature specs will fail."
