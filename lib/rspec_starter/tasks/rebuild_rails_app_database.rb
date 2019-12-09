@@ -1,11 +1,16 @@
 # Rebuild the database for a rails application or a rails engine. This task honors the following command line options
 #   --skip-db-prep    Causes the task to be skipped
 class RebuildRailsAppDatabase < RspecStarterTask
+  def self.description
+    "Rebuild a Ruby on Rails application or engine database."
+  end
+
   def self.register_options
-    register_option name: "skip_db_prep", default: false, switch: '--skip-db-prep',
-                    description: "DO NOT prepare the Rails application database"
+    register_option default: false, switch: '--skip-db-prep',
+                    switch_description: "DO NOT prepare the Rails application database"
     register_option name: "command",
-                    default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:migrate"
+                    default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:migrate",
+                    description: "A command string that is used to rebuild the database."
   end
 
   def should_skip?

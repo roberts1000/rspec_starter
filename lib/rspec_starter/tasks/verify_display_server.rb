@@ -2,8 +2,12 @@
 # the feature tests. MacOS provides its own display server that always runs. Linux needs one installed and activated. This
 # task is currently focused on the XVFB display server.
 class VerifyDisplayServer < RspecStarterTask
+  def self.description
+    "Test the installation of XVFB on Linux and ensure it is not installed on Macs."
+  end
+
   def self.register_options
-    register_option default: false, switch: '--skip-display-server', description: "DO NOT check for a display server"
+    register_option default: false, switch: '--skip-display-server', switch_description: "DO NOT check for a display server"
   end
 
   # Let subsequent steps run if this task runs into a problem checking the display server. This value can be overridden in

@@ -1,11 +1,12 @@
 module RspecStarter
   # Option objects hold the information that Step subclasses want to register as options.
   class Option
-    attr_reader :name, :default, :description, :key, :switch, :owner
+    attr_reader :name, :default, :description, :key, :owner, :switch, :switch_description
 
-    def initialize(name:, default:, switch:, description:, owner:)
+    def initialize(name:, default:, description: "", owner:, switch:, switch_description: "")
       @owner = owner
       @switch = switch
+      @switch_description = switch_description
       @simplified_switch = switch.nil? ? nil : self.class.simplified_switch_name(switch)
       @description = description
       @default = default

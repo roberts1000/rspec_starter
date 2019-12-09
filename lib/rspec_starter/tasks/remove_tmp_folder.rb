@@ -1,5 +1,9 @@
 # RemoveTmpFolder deletes the tmp folder before RSpec runs.
 class RemoveTmpFolder < RspecStarterTask
+  def self.description
+    "Remove the #{'tmp'.colorize(:light_blue)} folder from the project."
+  end
+
   # Let subsequent steps run if this task runs into a problem deleting the tmp folder. This value can be overridden in
   # the applications bin/start_rspec file if the user adds 'stop_on_problem: true' to the task line.
   def self.default_stop_on_problem
