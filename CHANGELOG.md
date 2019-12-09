@@ -2,9 +2,10 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
-## Next Release
+## 1.6.0 (Dec 09, 2019)
 
 1. [#56](../../issues/56) Move old starter code to a `legacy` folder so it can still be used. **(Internal)**
+1. [#58](../../issues/58) Add step based interface.
 1. [#59](../../issues/59) Use `rake ~> 13.0` for development. **(Internal)**
 1. [#61](../../issues/61) Use `pry-byebug ~> 3.7.0` for development. **(Internal)**
 1. [#63](../../issues/63) Modernize the CHANGELOG. **(Internal)**
