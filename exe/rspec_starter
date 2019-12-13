@@ -47,7 +47,7 @@ command = Cri::Command.define do
     template_path =
       if helpers.project_is_rails_app?
         File.expand_path('../lib/templates/rails_start_rspec', __dir__)
-      elsif helpers.project_is_rails_app?
+      elsif helpers.project_is_rails_engine?
         File.expand_path('../lib/templates/rails_engine_start_rspec', __dir__)
       else
         File.expand_path('../lib/templates/start_rspec', __dir__)

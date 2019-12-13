@@ -2,6 +2,10 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
+## Next Release
+
+1. [#74](../../issues/74) Make `rspec_starter --init` detect Rails engines correctly.
+
 ## 1.6.0 (Dec 09, 2019)
 
 1. [#56](../../issues/56) Move old starter code to a `legacy` folder so it can still be used. **(Internal)**
