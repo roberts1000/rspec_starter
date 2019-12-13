@@ -20,7 +20,7 @@ class RemoveTmpFolder < RspecStarterTask
   end
 
   def starting_message
-    if options.remove_dummy
+    if options.remove_dummy_tmp
       "Removing #{'tmp/'.highlight} and #{relative_dummy_tmp_folder_path.highlight} folders"
     else
       "Removing #{'tmp/'.highlight} folder"
@@ -42,7 +42,7 @@ class RemoveTmpFolder < RspecStarterTask
   end
 
   def remove_dummy_tmp_folder
-    return unless options.remove_dummy
+    return unless options.remove_dummy_tmp
     return unless dummy_tmp_folder_exists?
 
     system "rm -rf #{absolute_dummy_tmp_folder_path}"
