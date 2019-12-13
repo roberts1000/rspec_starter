@@ -2,7 +2,7 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
-## Next Release
+## 1.7.0 (Dec 12, 2019)
 
 1. [#74](../../issues/74) Make `rspec_starter --init` detect Rails engines correctly.
 1. [#75](../../issues/75) Let `remove_tmp_folder` task remove the tmp folder from `dummy` apps.
