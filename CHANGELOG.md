@@ -5,6 +5,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 ## Next Release
 
 1. [#74](../../issues/74) Make `rspec_starter --init` detect Rails engines correctly.
+1. [#75](../../issues/75) Let `remove_tmp_folder` task remove the tmp folder from `dummy` apps.
 
 ## 1.6.0 (Dec 09, 2019)
 

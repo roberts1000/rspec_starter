@@ -32,7 +32,7 @@ APP_ROOT = Pathname.new File.expand_path('../', __dir__)
 # Tasks are run from the top down.
 RspecStarter.start do
   task :verify_display_server
-  task :remove_tmp_folder
+  task :remove_tmp_folder, remove_dummy_tmp: true
   task :rebuild_rails_app_database
   task :start_rspec
 end
