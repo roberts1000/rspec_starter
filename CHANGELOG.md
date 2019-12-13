@@ -2,6 +2,10 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
+## 1.7.1 (Dec 13, 2019)
+
+1. [#80](../../issues/80) Fix call to missing `remove_dummy` method.
+
 ## 1.7.0 (Dec 12, 2019)
 
 1. [#74](../../issues/74) Make `rspec_starter --init` detect Rails engines correctly.
