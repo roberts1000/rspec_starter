@@ -2,6 +2,10 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
+## Next Release
+
+1. [#84](../../issues/84) Removed unneeded `/` in templates.
+
 ## 1.7.1 (Dec 13, 2019)
 
 1. [#80](../../issues/80) Fix call to missing `remove_dummy` method.
