@@ -2,7 +2,7 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
-## Next Release
+## 1.7.2 (Dec 20, 2019)
 
 1. [#84](../../issues/84) Removed unneeded `/` in templates.
 
