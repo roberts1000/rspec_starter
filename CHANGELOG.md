@@ -2,7 +2,7 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
-## Next Release
+## 1.8.0 (Apr 03, 2020)
 
 1. [#88](../../issues/88) Use `os ~> 1.1.0`.
 1. [#90](../../issues/90) Use `pry-byebug ~> 3.9.0`. **(Internal)**
