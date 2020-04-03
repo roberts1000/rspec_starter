@@ -5,6 +5,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 ## Next Release
 
 1. [#90](../../issues/90) Use `pry-byebug ~> 3.9.0`. **(Internal)**
+1. [#92](../../issues/92) Update ruby versions in `.travis.yml`. **(Internal)**
 
 ## 1.7.2 (Dec 20, 2019)
 
