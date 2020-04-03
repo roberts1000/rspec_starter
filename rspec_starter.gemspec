@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport", ">= 5.2.2"
   spec.add_dependency "colorize", "~> 0.8.1"
   spec.add_dependency "cri", "~> 2.0"
-  spec.add_dependency "os", "~> 1.0.0"
+  spec.add_dependency "os", "~> 1.1.0"
 end
