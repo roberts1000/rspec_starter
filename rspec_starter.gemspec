@@ -20,12 +20,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "pry-byebug", "~> 3.7.0"
+  spec.add_development_dependency "pry-byebug", "~> 3.9.0"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
   spec.add_dependency "activesupport", ">= 5.2.2"
   spec.add_dependency "colorize", "~> 0.8.1"
   spec.add_dependency "cri", "~> 2.0"
-  spec.add_dependency "os", "~> 1.0.0"
+  spec.add_dependency "os", "~> 1.1.0"
 end
