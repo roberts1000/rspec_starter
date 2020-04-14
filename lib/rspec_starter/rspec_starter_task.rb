@@ -11,7 +11,7 @@
 # that determines whether a problem should cause the entire start-up process to stop when the task encounters a problem.
 class RspecStarterTask < RspecStarterStep
   def self.register_option(hash)
-    @options_registrar.register_task_option(self, hash)
+    @options_registrar.register_task_option(self, **hash)
   end
 
   def self.description
