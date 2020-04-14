@@ -12,7 +12,7 @@ Releases are versioned using [semver 2.0.0](https://semver.org/spec/v2.0.0.html)
 
 ## Supported Ruby Versions
 
-2.3.0+
+2.4.0+
 
 ## Installation
 
