@@ -2,7 +2,7 @@
 
 Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
 
-## Next Release
+## 1.8.1 (Apr 14, 2020)
 
 1. [#97](../../issues/97) Fix "Using the last argument as keyword" deprecation warning.
 
