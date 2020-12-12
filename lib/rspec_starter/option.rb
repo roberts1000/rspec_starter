@@ -3,7 +3,7 @@ module RspecStarter
   class Option
     attr_reader :name, :default, :description, :key, :owner, :switch, :switch_description
 
-    def initialize(name:, default:, description: "", owner:, switch:, switch_description: "")
+    def initialize(name:, default:, owner:, switch:, description: "", switch_description: "")
       @owner = owner
       @switch = switch
       @switch_description = switch_description

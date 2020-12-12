@@ -65,12 +65,9 @@ command = Cri::Command.define do
     exit 0
   end
 
-  run do |options, args, cmd|
-  end
+  run
 end
 # rubocop:enable Metrics/BlockLength
 
-begin
-  command.run(ARGV)
-  exit 0
-end
+command.run(ARGV)
+exit 0
