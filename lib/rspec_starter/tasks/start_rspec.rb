@@ -56,7 +56,7 @@ class StartRspec < RspecStarterTask
 
   def determine_command
     cmd = enhanced_command
-    options.rspec_args_string.empty? ? cmd : cmd + " " + options.rspec_args_string
+    options.rspec_args_string.empty? ? cmd : "#{cmd} #{options.rspec_args_string}"
   end
 
   # Returns a string that will either be 'xvfb-run bundle exec rspec' or 'bundle exec rspec'

@@ -36,12 +36,12 @@ require 'rspec_starter/legacy'
 # Setup pry for development when running "rake console". Guard against load
 # errors in production (since pry is only loaded as a DEVELOPMENT dependency
 # in the .gemspec)
-# rubocop:disable Lint/HandleExceptions
+# rubocop:disable Lint/SuppressedException
 begin
   require "pry"
 rescue LoadError
 end
-# rubocop:enable Lint/HandleExceptions
+# rubocop:enable Lint/SuppressedException
 
 # The main entry point for the RspecStarter gem. The 'bin/start_rspec' file contains a block of code like this:
 #
@@ -56,7 +56,7 @@ end
 module RspecStarter
   def self.start(defaults={}, &block)
     # If a block is missing, then the user is using the old method based starter.
-    return invoke_legacy_starter(defaults) unless block_given?
+    return invoke_legacy_starter(defaults) unless block
 
     # Loads the information from the bin/start_rspec file and loads/parses the options. Provides info to the @runner.
     @environment = Environment.new(ARGV, &block)

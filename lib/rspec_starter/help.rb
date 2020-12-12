@@ -42,17 +42,17 @@ module RspecStarter
   end
 
   def self.write_help_examples_section(colored_script_name)
-    # rubocop:disable Metrics/LineLength
     puts "\nExamples:"
     puts "       #{colored_script_name} #{'spec/features'.colorize(:light_blue)} (only run specs in the specs/features folder)"
+    # rubocop:disable Layout/LineLength
     puts "       #{colored_script_name} #{'spec/features/some_spec:53'.colorize(:light_blue)} (run the spec on line 53 of the spec/features_some_spec.rb file)"
     puts "       #{colored_script_name} #{'--no-xvfb'.colorize(:light_blue)} #{'spec/requests/some_spec'.colorize(:light_blue)} (don't start XVFB since it's not needed for request specs)"
+    # rubocop:enable Layout/LineLength
     puts "       #{'SIMPLECOV_FORMATTER=rcov'.colorize(:light_blue)} #{colored_script_name} (use with environment variables)\n"
-    # rubocop:enable Metrics/LineLength
   end
 
   def self.write_available_tasks
-    subclasses = ObjectSpace.each_object(Class).select { |klass| klass < RspecStarterTask }.sort { |a, b| a.name <=> b.name }
+    subclasses = ObjectSpace.each_object(Class).select { |klass| klass < RspecStarterTask }.sort_by(&:name)
 
     puts "\nAvailable Tasks:"
     subclasses.each do |klass|
@@ -62,26 +62,32 @@ module RspecStarter
   end
 
   def self.write_task_info(colored_script_name)
-    puts "\nTask Options:"
-    puts "       These options can be used inside the #{colored_script_name} file on #{"task".colorize(:light_blue)} lines."
-    puts "       This list is computed dynamically based on the tasks that are enabled in the #{colored_script_name} file."
-    puts "       Every task accepts the following options:"
-    puts "          #{"quiet".colorize(:light_blue)} (true/false - Tell the task to be verbose. Some tasks may disregard at times.)"
-    puts "          #{"stop_on_problem".colorize(:light_blue)} (true/false - Tell the task to stop startup if it encounters a problem.)"
-    puts ""
+    write_task_info_header(colored_script_name)
 
-    sorted_task_options = Hash[@environment.options.registered_task_options.sort_by do |klass, options|
+    sorted_task_options = Hash[@environment.options.registered_task_options.sort_by do |klass, _options|
       RspecStarterTask.name_for_class(klass)
     end]
 
     sorted_task_options.each do |klass, options|
-      dsl_options = options.select(&:is_dsl_option?).sort {|a,b| a.name <=> b.name }
-      unless dsl_options.empty?
-        puts "       :#{RspecStarterTask.name_for_class(klass).to_s.colorize(:light_blue)}"
-        dsl_options.each do |option|
-                  puts "          #{option.name.colorize(:light_blue)} (#{option.description})"
-        end
+      dsl_options = options.select(&:is_dsl_option?).sort_by(&:name)
+      next if dsl_options.empty?
+
+      puts "       :#{RspecStarterTask.name_for_class(klass).to_s.colorize(:light_blue)}"
+      dsl_options.each do |option|
+        puts "          #{option.name.colorize(:light_blue)} (#{option.description})"
       end
     end
+  end
+
+  def self.write_task_info_header(colored_script_name)
+    puts "\nTask Options:"
+    puts "       These options can be used inside the #{colored_script_name} file on #{'task'.colorize(:light_blue)} lines."
+    puts "       This list is computed dynamically based on the tasks that are enabled in the #{colored_script_name} file."
+    puts "       Every task accepts the following options:"
+    # rubocop:disable Layout/LineLength
+    puts "          #{'quiet'.colorize(:light_blue)} (true/false - Tell the task to be verbose. Some tasks may disregard at times.)"
+    puts "          #{'stop_on_problem'.colorize(:light_blue)} (true/false - Tell the task to stop startup if it encounters a problem.)"
+    # rubocop:enable Layout/LineLength
+    puts ""
   end
 end

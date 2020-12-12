@@ -18,12 +18,12 @@ class RspecStarterTask < RspecStarterStep
     ""
   end
 
-  private
-
   # Convert something like VerifyDisplayServer to :verify_display_server
   def self.name_for_class(klass)
     klass.name.underscore.to_sym
   end
+
+  private
 
   def print_starting_message
     print "#{@starting_message} ..."

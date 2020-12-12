@@ -36,7 +36,8 @@ module RspecStarter
       if @success_or_skipped
         puts "Success".colorize(:green)
       else
-        puts "Fail".colorize(:red) + "\n\n"
+        puts "Fail".colorize(:red)
+        puts "\n\n"
         puts stderr
         puts "\n\nThere was an error rebuilding the test database.  See the output above for details.".colorize(:red)
         puts "or manually run '#{rebuild_cmd}' for more information.".colorize(:red)

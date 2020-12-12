@@ -54,8 +54,8 @@ module RspecStarter
       registered_options.each do |option|
         # The switch could be nil for the option, which means the step isn't registering a switch for this option. The step
         # developer just wants to register an option for the dsl (which is applied earlier).
-        if option.switch
-          options.update(option.key, !option.default, add_missing: false) if present_switches.include?(option.switch)
+        if option.switch && present_switches.include?(option.switch)
+          options.update(option.key, !option.default, add_missing: false)
         end
       end
     end
