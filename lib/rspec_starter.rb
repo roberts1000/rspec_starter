@@ -31,8 +31,6 @@ require 'rspec_starter/tasks/remove_tmp_folder'
 require 'rspec_starter/tasks/start_rspec'
 require 'rspec_starter/tasks/verify_display_server'
 
-require 'rspec_starter/legacy'
-
 # Setup pry for development when running "rake console". Guard against load
 # errors in production (since pry is only loaded as a DEVELOPMENT dependency
 # in the .gemspec)
@@ -55,8 +53,16 @@ end
 # makes 'self' equal the RspecStarter module inside the block.
 module RspecStarter
   def self.start(defaults={}, &block)
-    # If a block is missing, then the user is using the old method based starter.
-    return invoke_legacy_starter(defaults) unless block
+    unless block
+      msg =  "Error: RspecStarter.start was called without a block. It should be called like this: \n\n" \
+        "       RspecStarter.start do\n" \
+        "         command \"echo 'something'\"\n" \
+        "         task :some_task_name\n" \
+        "         #     ... more tasks and commands ...\n" \
+        "       end".colorize(:red)
+      puts msg
+      exit 1
+    end
 
     # Loads the information from the bin/start_rspec file and loads/parses the options. Provides info to the @runner.
     @environment = Environment.new(ARGV, &block)
@@ -80,7 +86,7 @@ module RspecStarter
       end
 
       # If we get here RSpec has been started and the rspec_starter's job is done.
-      exit(0)
+      exit 0
     end
   end
 end
