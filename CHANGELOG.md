@@ -5,6 +5,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 ## Next Release
 
 1. [#101](../../issues/101) Remove Ruby 2.4 support.
+1. [#106](../../issues/106) Remove Ruby 2.5 support.
 
 ## 1.8.1 (Apr 14, 2020)
 
