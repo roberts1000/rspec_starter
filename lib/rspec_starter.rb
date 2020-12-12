@@ -52,17 +52,8 @@ end
 # The start method that is executed is show below. The call to 'instance_eval(&block)' below is the special sauce that
 # makes 'self' equal the RspecStarter module inside the block.
 module RspecStarter
-  def self.start(defaults={}, &block)
-    unless block
-      msg =  "Error: RspecStarter.start was called without a block. It should be called like this: \n\n" \
-        "       RspecStarter.start do\n" \
-        "         command \"echo 'something'\"\n" \
-        "         task :some_task_name\n" \
-        "         #     ... more tasks and commands ...\n" \
-        "       end".colorize(:red)
-      puts msg
-      exit 1
-    end
+  def self.start(&block)
+    show_missing_start_block_error_and_exit unless block
 
     # Loads the information from the bin/start_rspec file and loads/parses the options. Provides info to the @runner.
     @environment = Environment.new(ARGV, &block)
@@ -88,5 +79,16 @@ module RspecStarter
       # If we get here RSpec has been started and the rspec_starter's job is done.
       exit 0
     end
+  end
+
+  def self.show_missing_start_block_error_and_exit
+    msg = "Error: RspecStarter.start was called without a block. It should be called like this: \n\n" \
+      "       RspecStarter.start do\n" \
+      "         command \"echo 'something'\"\n" \
+      "         task :some_task_name\n" \
+      "         #     ... more tasks and commands ...\n" \
+      "       end".colorize(:red)
+    puts msg
+    exit 1
   end
 end
