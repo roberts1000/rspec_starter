@@ -5,7 +5,7 @@ require 'rspec_starter/version'
 Gem::Specification.new do |spec|
   spec.name          = "rspec_starter"
   spec.version       = RspecStarter::VERSION
-  spec.authors       = ["Roberts"]
+  spec.authors       = ["roberts1000"]
   spec.email         = ["roberts@corlewsolutions.com"]
 
   spec.summary       = "A Ruby gem that helps run RSpec in a standard manner."
