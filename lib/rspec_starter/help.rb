@@ -46,7 +46,7 @@ module RspecStarter
     puts "       #{colored_script_name} #{'spec/features'.colorize(:light_blue)} (only run specs in the specs/features folder)"
     # rubocop:disable Layout/LineLength
     puts "       #{colored_script_name} #{'spec/features/some_spec:53'.colorize(:light_blue)} (run the spec on line 53 of the spec/features_some_spec.rb file)"
-    puts "       #{colored_script_name} #{'--no-xvfb'.colorize(:light_blue)} #{'spec/requests/some_spec'.colorize(:light_blue)} (don't start XVFB since it's not needed for request specs)"
+    puts "       #{colored_script_name} #{'--skip-display-server'.colorize(:light_blue)} #{'spec/requests/some_spec'.colorize(:light_blue)} (don't start XVFB since it's not needed for request specs)"
     # rubocop:enable Layout/LineLength
     puts "       #{'SIMPLECOV_FORMATTER=rcov'.colorize(:light_blue)} #{colored_script_name} (use with environment variables)\n"
   end
