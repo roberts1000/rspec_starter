@@ -7,6 +7,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 1. [#101](../../issues/101): Remove Ruby 2.4 support.
 1. [#106](../../issues/106): Remove Ruby 2.5 support.
 1. [#109](../../issues/109): Remove support for legacy API.
+1. [#112](../../issues/112): Change `--no-xvfb` ref to `--skip-display-server` in help output.
 
 ## 1.8.1 (Apr 14, 2020)
 
