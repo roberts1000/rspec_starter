@@ -10,6 +10,7 @@ Issues marked as **(Internal)** mark internal development work. Issues are track
 1. [#112](../../issues/112): Change `--no-xvfb` ref to `--skip-display-server` in help output.
 1. [#114](../../issues/114): Fix `quiet` and `stop_on_problem` not getting overridden through the `start` block.
 1. [#116](../../issues/116): Setup GitHub Pull Request action. **(Internal)**
+1. [#120](../../issues/120): Add `rubocop_plus` `~> 2.0` to the `Gemfile`. **(Internal)**
 
 ## 1.8.1 (Apr 14, 2020)
 
