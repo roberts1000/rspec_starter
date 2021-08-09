@@ -36,7 +36,7 @@ module RspecStarter
     # If name is specified, this option can be used inside the start block on a task.
     def register_task_option(klass, name: nil, default: nil, description: "", switch: nil, switch_description: "")
       new_option = RspecStarter::Option.new(name: name, default: default, description: description, owner: klass, switch: switch,
-                                            switch_description: switch_description)
+        switch_description: switch_description)
       @registered_task_options[klass] << new_option
     end
 

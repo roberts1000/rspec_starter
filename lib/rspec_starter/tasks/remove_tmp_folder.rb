@@ -6,11 +6,11 @@ class RemoveTmpFolder < RspecStarterTask
 
   def self.register_options
     register_option name: "remove_dummy_tmp",
-                    default: false,
-                    description: "true/false to remove the tmp folder for the dummy app too."
+      default: false,
+      description: "true/false to remove the tmp folder for the dummy app too."
     register_option name: "dummy_path",
-                    default: "spec/dummy",
-                    description: "Relative path to the dummy folder."
+      default: "spec/dummy",
+      description: "Relative path to the dummy folder."
   end
 
   # Let subsequent steps run if this task runs into a problem deleting the tmp folder. This value can be overridden in
