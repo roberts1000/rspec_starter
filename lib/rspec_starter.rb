@@ -83,11 +83,11 @@ module RspecStarter
 
   def self.show_missing_start_block_error_and_exit
     msg = "Error: RspecStarter.start was called without a block. It should be called like this: \n\n" \
-      "       RspecStarter.start do\n" \
-      "         command \"echo 'something'\"\n" \
-      "         task :some_task_name\n" \
-      "         #     ... more tasks and commands ...\n" \
-      "       end".colorize(:red)
+          "       RspecStarter.start do\n" \
+          "         command \"echo 'something'\"\n" \
+          "         task :some_task_name\n" \
+          "         #     ... more tasks and commands ...\n" \
+          "       end".colorize(:red)
     puts msg
     exit 1
   end

@@ -6,10 +6,10 @@ class StartRspec < RspecStarterTask
 
   def self.register_options
     register_option name: "skip_display_server", default: false, switch: '--skip-display-server',
-                    switch_description: "DO NOT check for a display server",
-                    description: "true/false to enable/disable starting the display server"
+      switch_description: "DO NOT check for a display server",
+      description: "true/false to enable/disable starting the display server"
     register_option name: "command", default: "bundle exec rspec",
-                    description: "A command string that is used to start RSpec."
+      description: "A command string that is used to start RSpec."
   end
 
   def self.default_quiet

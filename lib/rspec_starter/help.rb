@@ -64,11 +64,11 @@ module RspecStarter
   def self.write_task_info(colored_script_name)
     write_task_info_header(colored_script_name)
 
-    sorted_task_options = Hash[@environment.options.registered_task_options.sort_by do |klass, _options|
+    sorted_task_options = @environment.options.registered_task_options.sort_by do |klass, _options|
       RspecStarterTask.name_for_class(klass)
-    end]
+    end
 
-    sorted_task_options.each do |klass, options|
+    sorted_task_options.to_h.each do |klass, options|
       dsl_options = options.select(&:is_dsl_option?).sort_by(&:name)
       next if dsl_options.empty?
 

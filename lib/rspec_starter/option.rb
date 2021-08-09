@@ -62,14 +62,14 @@ module RspecStarter
       return unless switch.nil? && name.nil?
 
       raise "#{owner.name}#register_options is trying to create an option but 'name:' or 'switch:' are not specified. " \
-        "At least one must be specified."
+            "At least one must be specified."
     end
 
     def validate_default_is_true_false_for_switch
       return unless switch && ![true, false].include?(default)
 
       raise "#{owner.name}#register_options is trying to create an option for switch #{switch}. Options with switches " \
-        "can only return true/false. Set the 'default' argument to true or false for the option."
+            "can only return true/false. Set the 'default' argument to true or false for the option."
     end
 
     def validate_switch_is_like_name
@@ -77,8 +77,8 @@ module RspecStarter
       return if name == @simplified_switch
 
       raise "#{owner.name}#register_options is trying to create an option with name #{name} and switch #{switch}. " \
-        "The switch must be the same as the name when hyphens are converted to underscores and leading hyphens " \
-        "are removed."
+            "The switch must be the same as the name when hyphens are converted to underscores and leading hyphens " \
+            "are removed."
     end
   end
 end

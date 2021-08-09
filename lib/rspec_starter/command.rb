@@ -45,7 +45,7 @@ module RspecStarter
       puts @stdout
       puts @stderr
       puts "There was an error running '#{@command_string}'. It returned with exit status #{@status.exitstatus}.\n" \
-        "See the output above for details or manually run the command for more information.".colorize(:red)
+           "See the output above for details or manually run the command for more information.".colorize(:red)
     end
 
     def colored_command_string

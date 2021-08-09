@@ -7,10 +7,10 @@ class RebuildRailsAppDatabase < RspecStarterTask
 
   def self.register_options
     register_option default: false, switch: '--skip-db-prep',
-                    switch_description: "DO NOT prepare the Rails application database"
+      switch_description: "DO NOT prepare the Rails application database"
     register_option name: "command",
-                    default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:migrate",
-                    description: "A command string that is used to rebuild the database."
+      default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:migrate",
+      description: "A command string that is used to rebuild the database."
   end
 
   def should_skip?
@@ -37,7 +37,7 @@ class RebuildRailsAppDatabase < RspecStarterTask
     puts @stdout
     puts @stderr
     puts "\n\nThere was an error rebuilding the test database.  See the output above for details " \
-      "or manually run '#{options.command}' for more information.".colorize(:red)
+         "or manually run '#{options.command}' for more information.".colorize(:red)
   end
 
   private
