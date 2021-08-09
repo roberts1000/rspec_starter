@@ -12,9 +12,3 @@ inherit_gem:
 
 Rails:
   Enabled: false
-
-Style/NumericPredicate:
-  Enabled: false
-
-Style/Alias:
-  Enabled: false
