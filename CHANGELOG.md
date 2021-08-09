@@ -1,6 +1,6 @@
 # CHANGELOG
 
-Issues marked as **(Internal)** mark internal development work. Issues are tracked at https://github.com/roberts1000/rspec_starter/issues.
+Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issues marked as **(Internal)** only affect development.
 
 ## Next Release
 

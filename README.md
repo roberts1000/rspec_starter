@@ -6,9 +6,12 @@ rspec_starter also helps eliminate differences between operating systems. For ex
 
 rspec_starter currently works natively for Rails applications, Rails Engines and raw ruby applications/gems that are not database dependent. However, rspec_starter is flexible and you can add your own tasks to support other types of projects.
 
-## Version Strategy
+## Versioning Strategy
 
-Releases are versioned using [semver 2.0.0](https://semver.org/spec/v2.0.0.html).
+Releases are versioned using [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html) with the following caveats:
+
+1. Support for a Ruby version, that reaches EOL, is removed in a major or minor release.
+1. Support for a Ruby on Rails version, that reaches EOL, is removed in a major or minor release.
 
 ## Supported Ruby Versions
 
@@ -231,5 +234,4 @@ Run `bin/start_rspec --help` to see a list of command line options. Command line
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/roberts1000/rspec_starter.
-
+Bug reports and pull requests are welcome on the rspec_starter [issues](https://github.com/roberts1000/rspec_starter) page.
