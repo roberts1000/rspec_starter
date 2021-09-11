@@ -2,7 +2,7 @@
 
 Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issues marked as **(Internal)** only affect development.
 
-## Next Release
+## 2.0.1 (Sep 11, 2021)
 
 1. [#128](../../issues/128): Fix `undefined method` error when running `rspec_starter` executable.
 
