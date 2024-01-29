@@ -6,7 +6,7 @@
 class RspecStarterStep
   attr_accessor :id, :exit_status, :name, :quiet, :options, :run_time, :runner, :successful
 
-  alias_method :successful?, :successful
+  alias successful? successful
 
   def initialize(id, runner, options)
     @id = id
