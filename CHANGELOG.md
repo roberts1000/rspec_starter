@@ -10,6 +10,7 @@ Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issue
 1. [#138](../../issues/138): Fix RuboCop issues. **(Internal)**
 1. [#140](../../issues/140): Add Ruby 3.1 support.
 1. [#142](../../issues/142): Add a PR template. **(Internal)**
+1. [#144](../../issues/144): Add Ruby 3.2 support.
 
 ## 2.0.1 (Sep 11, 2021)
 
