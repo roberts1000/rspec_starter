@@ -22,7 +22,7 @@ module RspecStarter
       @steps.inject(0) do |max, step|
         # If a step doesn't execute, it's exit_status will be nil.
         current = step.exit_status || 0
-        max > current ? max : current
+        [max, current].max
       end
     end
   end

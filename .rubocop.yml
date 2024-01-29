@@ -12,3 +12,6 @@ inherit_gem:
 
 Rails:
   Enabled: false
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison

@@ -16,7 +16,7 @@ module RspecStarter
     end
 
     def name=(value)
-      @name = value.nil? ? nil : value.to_s
+      @name = value&.to_s
     end
 
     # Remove leading hyphens

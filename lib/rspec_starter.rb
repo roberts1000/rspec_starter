@@ -31,8 +31,6 @@ require 'rspec_starter/tasks/remove_tmp_folder'
 require 'rspec_starter/tasks/start_rspec'
 require 'rspec_starter/tasks/verify_display_server'
 
-# rubocop:enable Lint/SuppressedException
-
 # The main entry point for the RspecStarter gem. The 'bin/start_rspec' file contains a block of code like this:
 #
 #   RspecStarter.start do
