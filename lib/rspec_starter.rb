@@ -31,14 +31,6 @@ require 'rspec_starter/tasks/remove_tmp_folder'
 require 'rspec_starter/tasks/start_rspec'
 require 'rspec_starter/tasks/verify_display_server'
 
-# Setup pry for development when running "rake console". Guard against load
-# errors in production (since pry is only loaded as a DEVELOPMENT dependency
-# in the .gemspec)
-# rubocop:disable Lint/SuppressedException
-begin
-  require "pry"
-rescue LoadError
-end
 # rubocop:enable Lint/SuppressedException
 
 # The main entry point for the RspecStarter gem. The 'bin/start_rspec' file contains a block of code like this:

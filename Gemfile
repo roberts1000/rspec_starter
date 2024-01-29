@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
+  gem 'debug', '~> 1.9.1'
   gem 'rubocop_plus', '~> 2.0', require: false
 end
