@@ -5,6 +5,7 @@ Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issue
 ## Next Release
 
 1. [#132](../../issues/132): Use `colorize ~> 1.1.0`.
+1. [#134](../../issues/134): Set minimum supported Ruby to 3.0.0.
 
 ## 2.0.1 (Sep 11, 2021)
 
