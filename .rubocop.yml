@@ -15,3 +15,6 @@ Rails:
 
 Style/NumericPredicate:
   EnforcedStyle: comparison
+
+Naming/BlockForwarding:
+  EnforcedStyle: explicit
