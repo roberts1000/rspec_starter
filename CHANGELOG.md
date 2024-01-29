@@ -8,6 +8,7 @@ Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issue
 1. [#134](../../issues/134): Set minimum supported Ruby to 3.0.0.
 1. [#136](../../issues/136): Switch from `pry` to `debug`.
 1. [#138](../../issues/138): Fix RuboCop issues. **(Internal)**
+1. [#140](../../issues/140): Add Ruby 3.1 support.
 
 ## 2.0.1 (Sep 11, 2021)
 
