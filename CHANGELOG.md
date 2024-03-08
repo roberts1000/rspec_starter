@@ -2,6 +2,10 @@
 
 Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issues marked as **(Internal)** only affect development.
 
+## Next Release
+
+1. [#153](../../issues/153): Make `:rebuild_rails_app_database` task use `db:schema:load`.
+
 ## 2.1.0 (Jan 28, 2024)
 
 1. [#132](../../issues/132): Use `colorize ~> 1.1.0`.
