@@ -9,7 +9,7 @@ class RebuildRailsAppDatabase < RspecStarterTask
     register_option default: false, switch: '--skip-db-prep',
       switch_description: "DO NOT prepare the Rails application database"
     register_option name: "command",
-      default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:migrate",
+      default: "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=test rake db:drop db:create db:schema:load",
       description: "A command string that is used to rebuild the database."
   end
 

@@ -82,7 +82,7 @@ Any options that you add to steps inside the block, become available to the task
 RspecStarter.start do
   task :verify_display_servr, foo: :bar
   task :remove_tmp_folder
-  task :rebuild_rails_app_database, command: "rake db:drop db:create db:migrate", quiet: false
+  task :rebuild_rails_app_database, command: "RAILS_ENV=test rake db:drop db:create db:schema:load", quiet: false
   task :start_rspec, quiet: true
 end
 ```
