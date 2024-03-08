@@ -5,14 +5,14 @@ module RspecStarter
   # methods when needed.
   class StepOptions
     def add(key, value)
-      instance_variable_set("@#{key}", value)
+      instance_variable_set(:"@#{key}", value)
       self.class.define_method(key.to_s) do
-        instance_variable_get("@#{key}")
+        instance_variable_get(:"@#{key}")
       end
     end
 
     def update(key, value, add_missing: true)
-      return instance_variable_set("@#{key}", value) if respond_to?(key)
+      return instance_variable_set(:"@#{key}", value) if respond_to?(key)
 
       add(key, value) if add_missing
     end
