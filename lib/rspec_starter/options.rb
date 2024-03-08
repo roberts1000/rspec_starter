@@ -42,14 +42,14 @@ module RspecStarter
 
     def all_task_options
       hash = {}
-      @registered_task_options.each do |_task_class, options|
+      @registered_task_options.each_value do |options|
         options.each do |option|
           hash[option.switch] = option unless hash.has_key?(option.switch)
         end
       end
 
       list = []
-      hash.each { |_switch, option| list << option }
+      hash.each_value { |option| list << option }
       list
     end
 
@@ -63,7 +63,7 @@ module RspecStarter
 
     def all_task_switches
       list = Set.new
-      @registered_task_options.each do |_task_class, options|
+      @registered_task_options.each_value do |options|
         options.each { |option| list << option.switch unless option.switch.nil? }
       end
       list.to_a
