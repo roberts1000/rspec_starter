@@ -5,6 +5,7 @@ Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issue
 ## Next Release
 
 1. [#158](../../issues/158): Update dev and test gems. **(Internal)**
+1. [#160](../../issues/160): Remove Ruby 3.1 support.
 
 ## 3.0.0 (Mar 08, 2024)
 
