@@ -2,6 +2,10 @@
 
 Issues are tracked at https://github.com/roberts1000/rspec_starter/issues. Issues marked as **(Internal)** only affect development.
 
+## Next Release
+
+1. [#158](../../issues/158): Update dev and test gems. **(Internal)**
+
 ## 3.0.0 (Mar 08, 2024)
 
 1. [#153](../../issues/153): Make `:rebuild_rails_app_database` task use `db:schema:load`.
